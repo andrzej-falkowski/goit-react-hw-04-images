@@ -16,6 +16,7 @@ export default function App() {
   const apiKey = "43601558-493cea9937d74fa86e08084b6";
 
   useEffect(() => {
+    if (!query) return;
     const fetchImages = async () => {
       setIsLoading(true);
       await axios
@@ -26,6 +27,7 @@ export default function App() {
           const { data } = res;
           const totalHits = Math.ceil(data.totalHits / 12);
           // console.log(totalHits);
+          // console.log(page)
           setImages(prevImages => [...prevImages, ...data.hits]);
           setTotalPages(totalHits);
         })
