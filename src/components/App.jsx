@@ -53,7 +53,7 @@ export default function App() {
     <div className={styles.App}>
       <Searchbar onSubmit={handleSearch} />
       <ImageGallery images={images} />
-      {totalPages > page && <Button onButtonClick={loadMore} />}
+      {images.length > 0 && totalPages > page && <Button onButtonClick={loadMore} />}
       {isLoading && <Loader />}
     </div>
   );
